@@ -1,226 +1,221 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Portfolio - Chidurala Mounya Sai</title>
-<style>
-    body {
-        margin: 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f9f9f9;
-        color: #333;
-    }
-    header {
-        background: linear-gradient(135deg, #6c63ff, #3a3ccf);
-        color: white;
-        padding: 60px 20px;
-        text-align: center;
-    }
-    header h1 {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
-    }
-    header p {
-        font-size: 1.2rem;
-        opacity: 0.9;
-    }
-    nav {
-        display: flex;
-        justify-content: center;
-        background: #222;
-        padding: 10px 0;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
-    nav a {
-        color: white;
-        text-decoration: none;
-        padding: 10px 20px;
-        font-weight: 500;
-    }
-    nav a:hover {
-        background: #6c63ff;
-        transition: 0.3s;
-    }
-    section {
-        max-width: 1100px;
-        margin: auto;
-        padding: 40px 20px;
-    }
-    h2 {
-        color: #6c63ff;
-        text-align: center;
-        margin-bottom: 20px;
-        font-size: 2rem;
-    }
-    /* Skills Section */
-    .skills {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-    }
-    .skills img {
-        height: 40px;
-    }
-    /* Project Cards */
-    .projects {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-    }
-    .card {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease;
-    }
-    .card:hover {
-        transform: translateY(-5px);
-    }
-    .card h3 {
-        margin-top: 0;
-        color: #333;
-    }
-    .card p {
-        font-size: 0.95rem;
-        margin-bottom: 10px;
-    }
-    .card a {
-        display: inline-block;
-        padding: 8px 12px;
-        background: #6c63ff;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        font-size: 0.9rem;
-    }
-    .card a:hover {
-        background: #3a3ccf;
-    }
-    /* Contact Section */
-    .contact {
-        text-align: center;
-        font-size: 1.1rem;
-    }
-    .contact a {
-        color: #6c63ff;
-        text-decoration: none;
-    }
-    footer {
-        background: #222;
-        color: white;
-        text-align: center;
-        padding: 15px 0;
-        margin-top: 20px;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ch. Mounya Sai | Portfolio</title>
+    <style>
+        :root {
+            --bg: #f7f7f8;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --primary: #6d28d9;
+            --accent: #14b8a6;
+            --card: #ffffff;
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+        html[data-theme="dark"] {
+            --bg: #0b1020;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --primary: #c084fc;
+            --accent: #5eead4;
+            --card: #12172a;
+            --shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
+        }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            transition: background 0.3s, color 0.3s;
+        }
+        header {
+            position: sticky;
+            top: 0;
+            background: var(--bg);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+            z-index: 10;
+        }
+        nav a {
+            margin: 0 10px;
+            color: var(--muted);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        nav a:hover {
+            color: var(--primary);
+        }
+        .toggle {
+            cursor: pointer;
+            padding: 8px 14px;
+            border-radius: 8px;
+            border: none;
+            background: var(--primary);
+            color: white;
+            font-weight: bold;
+        }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 10px auto;
+        }
+        /* Wave Divider */
+        .wave {
+            display: block;
+            height: 60px;
+            overflow: hidden;
+            line-height: 0;
+        }
+        .wave svg {
+            position: relative;
+            display: block;
+            width: calc(133% + 1.3px);
+            height: 60px;
+        }
+        /* Skills */
+        .section {
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill {
+            padding: 8px 14px;
+            background: var(--card);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            animation: pop 0.5s ease;
+        }
+        @keyframes pop {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        /* Projects */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .project {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        .project:hover {
+            transform: translateY(-5px);
+        }
+        .project h3 {
+            margin-top: 0;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--muted);
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <div><strong>Mounya Sai</strong></div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <button id="themeToggle" class="toggle">🌙</button>
+    </header>
 
-<header>
-    <h1>👋 Hi, I'm Chidurala Mounya Sai</h1>
-    <p>💻 Aspiring Data Scientist | Python Developer | AI/ML Enthusiast</p>
-</header>
-
-<nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-</nav>
-
-<section id="about">
-    <h2>💼 About Me</h2>
-    <p>
-        🎓 B.Tech in Computer Science & Engineering (CGPA: 8.47) <br>
-        💻 Skilled in Python, Java, C, SQL, HTML, CSS, JavaScript <br>
-        📊 Experienced in Machine Learning, Data Visualization, Web Development, and Automation <br>
-        🎤 Recognized as Top Performer in the Smart Interviews program
-    </p>
-</section>
-
-<section id="skills">
-    <h2>🧠 Skills & Technologies</h2>
-    <div class="skills">
-        <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white">
-        <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white">
-        <img src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white">
-        <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
-        <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
-        <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E">
-        <img src="https://img.shields.io/badge/SQL-003B57?style=for-the-badge&logo=sqlite&logoColor=white">
-        <img src="https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black">
-        <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
+    <section class="hero" id="about">
+        <h1>Hi, I'm Ch. Mounya Sai</h1>
+        <p>Aspiring Data Scientist | Python Developer | AI/ML Enthusiast</p>
+        <p>3rd Year CSE @ GCET · Passionate about solving real-world problems with AI</p>
+    </section>
+    <div class="wave">
+        <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+            <path d="M-0.00,49.98 C150.00,150.00 349.84,-49.98 500.00,49.98 L500.00,150.00 L-0.00,150.00 Z" style="stroke: none; fill: var(--bg);"></path>
+        </svg>
     </div>
-</section>
 
-<section id="projects">
-    <h2>🌟 Projects</h2>
-    <div class="projects">
-        <div class="card">
-            <h3>Optimization Model</h3>
-            <p>Optimizes student Performance Index using data-driven modeling.</p>
-            <a href="https://github.com/mounyasai21/Optimization-Model" target="_blank">View Repo</a>
+    <section class="section" id="skills">
+        <h2>Skills</h2>
+        <div class="skills">
+            <div class="skill">Python</div>
+            <div class="skill">Java</div>
+            <div class="skill">C</div>
+            <div class="skill">SQL</div>
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">Machine Learning</div>
+            <div class="skill">Data Visualization</div>
+            <div class="skill">Flask</div>
         </div>
-        <div class="card">
-            <h3>End-to-End Data Science Project</h3>
-            <p>Complete DS workflow from EDA to model & deploy.</p>
-            <a href="https://github.com/mounyasai21/End-to-End-Data-Science-Project" target="_blank">View Repo</a>
-        </div>
-        <div class="card">
-            <h3>Data Pipeline Development</h3>
-            <p>Automated ETL and reproducible data flow.</p>
-            <a href="https://github.com/mounyasai21/DATA-PIPELINE-DEVELOPMENT" target="_blank">View Repo</a>
-        </div>
-        <div class="card">
-            <h3>Deep Learning Project</h3>
-            <p>Training & evaluation of DL models.</p>
-            <a href="https://github.com/mounyasai21/DEEP-LEARNING-PROJECT" target="_blank">View Repo</a>
-        </div>
-        <div class="card">
-            <h3>Restaurant Management System</h3>
-            <p>Web app for orders, billing, and menu.</p>
-            <a href="https://github.com/mounyasai21/Restaurant-management-system" target="_blank">View Repo</a>
-        </div>
-        <div class="card">
-            <h3>Sorting Visualization</h3>
-            <p>Interactive visualizer for sorting algorithms.</p>
-            <a href="https://github.com/mounyasai21/Sorting-Visualization" target="_blank">View Repo</a>
-        </div>
-        <div class="card">
-            <h3>Random Password Generator</h3>
-            <p>Secure, customizable password generation.</p>
-            <a href="https://github.com/mounyasai21/Random-Password-Generator" target="_blank">View Repo</a>
-        </div>
-        <div class="card">
-            <h3>BMI Calculator</h3>
-            <p>Quick BMI calculator with feedback.</p>
-            <a href="https://github.com/mounyasai21/BMI-Calculator" target="_blank">View Repo</a>
-        </div>
-        <div class="card">
-            <h3>Voice Assistant</h3>
-            <p>Speech assistant with APIs & weather.</p>
-            <a href="https://github.com/mounyasai21/Voice-Assistant" target="_blank">View Repo</a>
-        </div>
-    </div>
-</section>
+    </section>
 
-<section id="contact">
-    <h2>📬 Contact Me</h2>
-    <div class="contact">
+    <section class="section" id="projects">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="project">
+                <h3>Sleep Disorder Prediction</h3>
+                <p>ML model to classify sleep disorders based on health data.</p>
+            </div>
+            <div class="project">
+                <h3>Voice Assistant</h3>
+                <p>Speech-based assistant with API integration & weather updates.</p>
+            </div>
+            <div class="project">
+                <h3>BMI Calculator</h3>
+                <p>GUI tool with personalized feedback & health visualization.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <h2>Contact</h2>
         <p>Email: <a href="mailto:chiduralamounyasai@gmail.com">chiduralamounyasai@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/chidurala-mounya-sai-a29985280/" target="_blank">linkedin.com/in/chidurala-mounya-sai-a29985280</a></p>
         <p>GitHub: <a href="https://github.com/mounyasai21" target="_blank">github.com/mounyasai21</a></p>
-    </div>
-</section>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/chidurala-mounya-sai-a29985280/" target="_blank">linkedin.com/in/chidurala-mounya-sai</a></p>
+    </section>
 
-<footer>
-    <p>⭐ If you like my work, consider giving a star to my repositories!</p>
-</footer>
+    <footer>
+        © 2025 Ch. Mounya Sai · Built with ❤️ and HTML/CSS/JS
+    </footer>
 
+    <script>
+        const toggleBtn = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        toggleBtn.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', nextTheme);
+            localStorage.setItem('theme', nextTheme);
+            toggleBtn.textContent = nextTheme === 'dark' ? '☀️' : '🌙';
+        });
+    </script>
 </body>
 </html>
